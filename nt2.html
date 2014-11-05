@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>monkey</title>
+  <meta charset="utf-8">
+  <style>
+    #backimg{
+      height:300px;
+      width:2000px;
+    }
+    .character {
+      position: relative;
+      left: 20px;
+      top: 200px;
+      -webkit-transition-property: left top;
+      -webkit-transition-duration: 1s;
+      -o-transition-property: left top;
+      -o-transition-duration: 1s;
+      -moz-transition-property: left top;
+      -moz-transition-duration: 1s;
+      -ms-transition-property: left top;
+      -ms-transition-duration: 1s;
+      transition-property: left top;
+      transition-duration: 1s;
+    }
+    .character.jump {
+      top: 150px;
+    }
+    .part {
+      //border: 1px solid black;
+      display: block;
+      box-sizing: border-box;
+      //background-color: red;
+      position: absolute;
+      -webkit-transition: transform 0.5s;
+    }
+
+    .head {
+      left: 10px;
+      width: 45px;
+      height: 20px;
+      -webkit-transform-origin: 50% 90%;
+      z-index:4;
+    }
+    .body {
+      top: 20px;
+      width: 40px;
+      height: 40px;
+      z-index:3;
+    }
+    .left-arm {
+      width: 13px;
+      top: 35px;
+      left: 25px;
+      height: 40px;
+      -webkit-transform-origin: 40% 20%;
+      -webkit-transform: rotate(90deg);
+      z-index:2;
+    }
+    .right-arm {
+      width: 15px;
+      top: 35px;
+      left: 25px;
+      height: 40px;
+      -webkit-transform-origin: 45%  20%;
+      -webkit-transform: rotate(30deg);
+      z-index: 5;
+    }
+    .left-leg {
+      top: 50px;
+      left: 15px;
+      width: 30px;
+      height: 40px;
+      -webkit-transform-origin: 80% 10%;
+      z-index: 2;
+      -webkit-transform: rotate(5deg);
+    }
+    .right-leg {
+      top: 50px;
+      left: 8px;
+      width: 30px;
+      height: 40px;
+      -webkit-transform-origin: 45% 10%;
+      z-index: 4;
+      -webkit-transform: rotate(5deg);
+    }
+    
+    .swing {
+      -webkit-transform: rotate(-90deg);
+    }
+    img {width:100%;}
+  </style>
+  <script>
+    $(function() {
+      window.setInterval(function() {
+        $('.left-arm').toggleClass('swing');
+        $('.right-arm').toggleClass('swing');
+        $('.left-leg').toggleClass('swing');
+        $('.right-leg').toggleClass('swing');
+        $('.character').css('left','+=10');
+      }, 700);
+    });
+    function jump()
+    {
+      $('.character').addClass('jump');
+      setTimeout(function() {
+        $('.character').removeClass('jump');
+      }, 1000);
+    }
+  </script>
+</head>
+<body>
+  <div class="character" id="button1" onclick="jump()">
+    <div class="part head">
+      <img class="picture" src="https://googledrive.com/host/0B13gJZ9fR2FrT0lDSGVEQy00MlU/대갈.png" alt="picture">
+    </div>
+    <div class="part body">
+      <img class="picture" src="https://googledrive.com/host/0B13gJZ9fR2FrT0lDSGVEQy00MlU/몸통.png" alt="picture">
+    </div>
+    <div class="part left-arm swing">
+      <img class="picture" src="https://googledrive.com/host/0B13gJZ9fR2FrT0lDSGVEQy00MlU/안팔.png" alt="picture">
+    </div>
+    <div class="part right-arm">
+      <img class="picture" src="https://googledrive.com/host/0B13gJZ9fR2FrT0lDSGVEQy00MlU/밖팔.png" alt="picture">
+    </div>
+    <div class="part left-leg">
+      <img class="https://googledrive.com/host/0B13gJZ9fR2FrT0lDSGVEQy00MlU/안다리.png" alt="picture">
+    </div>
+    <div class="part right-leg swing">
+      <img class="picture" src="https://googledrive.com/host/0B13gJZ9fR2FrT0lDSGVEQy00MlU/밖다리.png" alt="picture">
+    </div>
+  </div>
+  <img id="backimg" src="https://googledrive.com/host/0B13gJZ9fR2FrT0lDSGVEQy00MlU/Untitleddddd-3.png">
+</body>
+</html>
